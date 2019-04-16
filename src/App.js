@@ -3,7 +3,7 @@ import './components/stylesheet.css'
 import Displayer from './components/Displayer'
 import Title from './components/Title'
 import AddVideo from './components/AddVideo'
-
+import MyWebcam from './components/MyWebcam'
 class App extends Component {
     constructor() {
         super()
@@ -22,13 +22,14 @@ class App extends Component {
 
     render() {
         return (<div>
-            <Title title={'No-Laugh Challenge'} />
+            {/* <Title title={'No-Laugh Challenge'} />
             <AddVideo onAddVideo={(addedPost) => {
                 this.addVideo(addedPost)
             }}/>
             <div className = "video-wrapper">
                 <Displayer posts={this.state.posts} />
-            </div>
+            </div> */}
+        <h1><MyWebcam/></h1>
         </div>
         )
     }
