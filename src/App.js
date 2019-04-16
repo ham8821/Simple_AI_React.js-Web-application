@@ -1,43 +1,37 @@
-import React, { Component } from 'react';
-import Title from './components/Title'
+import React, { Component } from 'react'
+import './components/stylesheet.css'
 import Displayer from './components/Displayer'
-import Addvideo from './components/Addvideo'
-import stylesheet.css from './components/stylesheet.css'
-
+import Title from './components/Title'
+import AddVideo from './components/Addvideo'
 
 class App extends Component {
-// Constructors
-constructor(){
-  super()
-  this.state = {
-    posts: [{
-      VideoLink: ""
-    }]
-  }
-}
+    constructor() {
+        super()
+        this.state = {
+            posts: [{
+                videoLink: ""
+            }]
+        }
+    }
 
-// Method called Addvideo
-addvideo(postSubmitted){
-  this.setState(state => ({
-    posts: [postSubmitted]
-  }))
-  }
+    addVideo(postSubmitted) {
+        this.setState(state => ({
+            posts: [postSubmitted]
+        }))
+    }
 
-  // Rendering
-  render() {
-    return (
-     <div>
-       <Title title={'No-Laugh Chanllenge'} />
-       <Addvideo onAddvideo={(addedPost)=>{
-         this.addvideo(addedPost)
-       }
-       }/>
-       <div className ="Video-wrapper">
-       <Displayer post= {this.state.posts} />
-       </div>
-     </div>
-    );
-  }
+    render() {
+        return (<div>
+            <Title title={'No-Laugh Challenge'} />
+            <AddVideo onAddVideo={(addedPost) => {
+                this.addVideo(addedPost)
+            }}/>
+            <div className = "video-wrapper">
+                <Displayer posts={this.state.posts} />
+            </div>
+        </div>
+        )
+    }
 }
 
 export default App;
