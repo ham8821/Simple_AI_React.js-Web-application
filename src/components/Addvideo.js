@@ -1,32 +1,35 @@
 import React, {Component} from 'react'
 
-class AddVideo extends Component{
-    constructor(){
+class AddVideo extends Component {
+
+    constructor() {
         super()
-        this.handleSubmit= this.handleSubmit.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
-    handleSubmit(event){
+
+    handleSubmit(event) {
         event.preventDefault();
-        const videoLink= event.target.elements.link.value
-        const post ={
+        const videoLink = event.target.elements.link.value
+        const post = {
             videoLink: videoLink
         }
-        if(videoLink){
+        if (videoLink){
             this.props.onAddVideo(post)
         }
     }
 
-    render(){
-        return(
+    render() {
+        return (
             <h1>
                 <div className="form">
-                    <form onSubmit ={this.handleSubmit}>
-                        <input type="text" placeholder="Link" name="link"/>
-                        <button>Play</button>
+                    <form onSubmit={this.handleSubmit}>
+                        <input type="text" placeholder="Link" name="link" />
+                        <button> Play </button>
                     </form>
                 </div>
             </h1>
         )
     }
 }
+
 export default AddVideo

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './components/stylesheet.css'
 import Displayer from './components/Displayer'
 import Title from './components/Title'
-import AddVideo from './components/Addvideo'
+import AddVideo from './components/AddVideo'
 
 class App extends Component {
     constructor() {
