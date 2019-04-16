@@ -1,26 +1,41 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Title from './components/Title'
+import Displayer from './components/Displayer'
+import Addvideo from './components/Addvideo'
+import stylesheet.css from './components/stylesheet.css'
+
 
 class App extends Component {
+// Constructors
+constructor(){
+  super()
+  this.state = {
+    posts: [{
+      VideoLink: ""
+    }]
+  }
+}
+
+// Method called Addvideo
+addvideo(postSubmitted){
+  this.setState(state => ({
+    posts: [postSubmitted]
+  }))
+  }
+
+  // Rendering
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+     <div>
+       <Title title={'No-Laugh Chanllenge'} />
+       <Addvideo onAddvideo={(addedPost)=>{
+         this.addvideo(addedPost)
+       }
+       }/>
+       <div className ="Video-wrapper">
+       <Displayer post= {this.state.posts} />
+       </div>
+     </div>
     );
   }
 }
