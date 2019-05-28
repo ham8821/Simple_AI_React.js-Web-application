@@ -23,7 +23,7 @@ class App extends Component {
     render() {
         return (
         <div>
-            <Title title={'No-Laugh Challenge'} />
+            <Title title={'Try Not to laugh Challenge'} />
             <AddVideo onAddVideo={(addedPost) => {
                 this.addVideo(addedPost)
             }}/>

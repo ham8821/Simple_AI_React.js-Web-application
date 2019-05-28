@@ -12,10 +12,6 @@ h1{
     border: 1px solid white;
     overflow: hidden;
 }
-.video{
-    height: 300px;
-    width: 400px;
-}
 .video-wrapper iframe,
 .video-wrapper object,
 .video-wrapper embed{
@@ -26,7 +22,3 @@ h1{
     height: 100%;
     z-index: -1;
 }
-/* .playsinline{
-    height: 300px;
-    width: 400px;
-} */
