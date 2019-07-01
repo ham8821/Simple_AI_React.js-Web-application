@@ -41,13 +41,32 @@ class MyWebcam extends React.Component {
             if (response.ok) {
                 response.json().then(data => {
                     var happiness = (data[0] != null ? data[0].faceAttributes.emotion.happiness : 0);
+                    var sadness= (data[0] != null ? data[0].faceAttributes.emotion.sadness : 0);
+                    var anger= (data[0] != null ? data[0].faceAttributes.emotion.anger : 0);
+                    var surprise= (data[0] != null ? data[0].faceAttributes.emotion.surprise : 0);
+                    var contempt= (data[0] != null ? data[0].faceAttributes.emotion.contempt : 0);
                     happiness = (Math.round(happiness * 100))
-                    if (this.isCapturing && happiness < 100) {
+                    sadness = (Math.round(sadness * 100))
+                    anger = (Math.round(anger * 100))
+                    surprise = (Math.round(surprise * 100))
+                    contempt = (Math.round(contempt * 100))
+
+
+                    if (this.isCapturing && happiness < 100 && sadness< 100) {
                         this.props.onReceivedResult(happiness);
+                        this.props.onReceivedResult2(sadness);
+                        this.props.onReceivedResult3(anger);
+                        this.props.onReceivedResult4(surprise);
+                        this.props.onReceivedResult5(contempt);
+
                     } else {
                         clearInterval(this.timerId);
-                        this.isCapturing = false;
+                        // this.isCapturing = false;
                         this.props.onReceivedResult(100);
+                        this.props.onReceivedResult2(100);
+                        this.props.onReceivedResult3(100);
+                        this.props.onReceivedResult4(100);
+                        this.props.onReceivedResult5(100);
                     }
                 });
             }
@@ -66,13 +85,14 @@ class MyWebcam extends React.Component {
                     <Webcam
                         audio={false}
                         height={320}
-                        width={400}
+                        width={500}
                         ref={this.setRef}
                         screenshotFormat="image/jpeg"
                         videoConstraints={videoConstraints}
                     />
                 </div>
-                <Button variant="primary" onClick={this.startCapturing}>Start Game!</Button>
+                
+                <Button variant="primary" onClick={this.startCapturing}>FIND OUT NOW</Button>
             </div>
         );
     }
